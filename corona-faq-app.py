@@ -3,10 +3,12 @@ import streamlit as st
 import openai
 from llama_index import GPTSimpleVectorIndex, SimpleDirectoryReader, ServiceContext, PromptHelper
 from llama_index.llm_predictor.chatgpt import ChatGPTLLMPredictor
+import os
 
 ### API Key
 # Streamlit Community Cloudの「Secrets」からOpenAI API keyを取得
-openai.api_key = st.secrets.OpenAIAPI.openai_api_key # secrets に後ほどAPI Keyを保存する
+os.environ["OPENAI_API_KEY"] = st.secrets.OpenAIAPI.openai_api_key # secrets に後ほどAPI Keyを保存する
+#openai.api_key = st.secrets.OpenAIAPI.openai_api_key # secrets に後ほどAPI Keyを保存する
 
 ### 変数
 # define prompt helper
@@ -17,7 +19,7 @@ num_output = 256
 # set maximum chunk overlap
 max_chunk_overlap = 20
 prompt_helper = PromptHelper(max_input_size, num_output, max_chunk_overlap)
-service_context = ServiceContext.from_defaults(llm_predictor=ChatGPTLLMPredictor(openai_api_key=st.secrets.OpenAIAPI.openai_api_key), prompt_helper=prompt_helper)
+service_context = ServiceContext.from_defaults(llm_predictor=ChatGPTLLMPredictor(), prompt_helper=prompt_helper)
 
 ### 作成済みインデックスの読み込み
 index = GPTSimpleVectorIndex.load_from_disk("/index_01-05.json", service_context = service_context)
