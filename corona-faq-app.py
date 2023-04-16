@@ -39,15 +39,16 @@ def show_response(response):
 def communicate():
     question =  "日本語で答えてください。 "  + st.session_state["user_input"]
     res = index.query(question)
-    response, node_score, node_text = show_response(res)
-    st.write("回答： " + response)
+
+    st.write("質問：" + st.session_state["user_input"])
     st.write("=================================================================================================================")
-    st.write("関連FAQ： " + node_text)
+    st.write("回答： " + res.response)
     st.write("=================================================================================================================")
-    st.write("スコア： " + node_score)
+    st.write("関連FAQ： " + res.source_nodes[0].node.text)
+    st.write("=================================================================================================================")
+    st.write("スコア： " + res.source_nodes[0].score)
 
     st.session_state["user_input"] = ""  # 入力欄を消去
-
 
 # ユーザーインターフェイスの構築
 st.title("コロナ感染症対策")
