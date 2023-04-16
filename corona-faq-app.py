@@ -7,8 +7,8 @@ import os
 
 ### API Key
 # Streamlit Community Cloudの「Secrets」からOpenAI API keyを取得
-#os.environ["OPENAI_API_KEY"] = st.secrets.OpenAIAPI.openai_api_key # secrets に後ほどAPI Keyを保存する
-#openai.api_key = st.secrets.OpenAIAPI.openai_api_key # secrets に後ほどAPI Keyを保存する
+os.environ["OPENAI_API_KEY"] = st.secrets.OpenAIAPI.openai_api_key # secrets に後ほどAPI Keyを保存する
+openai.api_key = st.secrets.OpenAIAPI.openai_api_key # secrets に後ほどAPI Keyを保存する
 openai_api_key = st.secrets.OpenAIAPI.openai_api_key
 
 ### 変数
