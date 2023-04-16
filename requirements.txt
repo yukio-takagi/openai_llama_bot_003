@@ -1,3 +1,9 @@
 streamlit==1.20.0
 openai
 llama_index==0.5.15 
+GPTSimpleVectorIndex
+SimpleDirectoryReader
+ServiceContext
+PromptHelper
+llama_index.llm_predictor.chatgpt
+ChatGPTLLMPredictor
