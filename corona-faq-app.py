@@ -23,7 +23,7 @@ prompt_helper = PromptHelper(max_input_size, num_output, max_chunk_overlap)
 service_context = ServiceContext.from_defaults(llm_predictor=ChatGPTLLMPredictor(), prompt_helper=prompt_helper)
 
 ### 作成済みインデックスの読み込み
-index = GPTSimpleVectorIndex.load_from_disk("/index_01-05.json", service_context = service_context)
+index = GPTSimpleVectorIndex.load_from_disk("index_01-05.json", service_context = service_context)
 
 # 検索結果を表示する関数
 def show_response(response):
