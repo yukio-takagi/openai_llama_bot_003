@@ -70,12 +70,12 @@ if st.session_state["messages"]:
 
     for message in messages[1:]:  # 
         if message["role"]=="user":
-            st.write("質問: ", + message["content"])
+            st.write("質問: " + message["content"])
         if message["role"]=="answer":
-            st.write("回答: ", + message["content"])
+            st.write("回答: " + message["content"])
         if message["role"]=="text":
-            st.write("関連文書: ", + message["content"])
+            st.write("関連文書: " + message["content"])
         if message["role"]=="score":
-            st.write("スコア: ", + message["content"])
+            st.write("スコア: " + message["content"])
         st.write("====================================================================================")
 
